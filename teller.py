@@ -13,18 +13,27 @@ enArr = ["___", "| |", "| |", "| |", "| |", "| |", "| |", "| |", "|_|"];
 
 toArr = ["   _____", "  / ___ \ ", " /_/   \ \ ", "       / /", "      / /", "     / /", "    / /", " __/ /___", "|________|"];
 
-treArr = ["     _____", "  / ___ \ ", "/_/   \ \ ", "     __/ /", "    |__  |", "         \ \ ", "    __    | |", "  \ \___/ /", "  \_____/"]
+treArr = ["  _____", " / ___ \ ", "/_/   \ \ ", "    __/ /", "   |__  |", "      \ \ ", "__    | |", "\ \___/ /", " \_____/"]
 
-fireArr = ["    _     _ ", " | |   | |", "| |   | |", " | |___| |", "  |_____| |", "      | |", "       | |", "       | |", "        |_|"];
+fireArr = [" _     _ ", "| |   | |", "| |   | |", "| |___| |", "|_____| |", "      | |", "      | |", "      | |", "      |_|"];
 
 femArr = [" _________", "|   ______|", "|  |", "|  |_____", "|_____   \ ", "      \   \ ", "___   |   |", "\  \__/   /", " \_______/"]
 
-rekke = len(toArr);
 
-for i in range(rekke):
-    print(enArr[i] + "   ", end='');
-    print(toArr[i] + "   ", end='');
-    print(treArr[i] + "   ", end='');
-    print(fireArr[i] + "   ", end='');
+def linjeNr(arr):
+    x = 0;
+    for i in arr:
+        if(len(i) > x):
+            x = len(i);
+            return x;
+
+def mellomrom(arr, i, buffer): #Regner ut mellomrom til linje. Mellomrom er lik lengden av den lengste linja, minus lengden på nåværende linje, pluss en buffer på 3
+    return (linjeNr(arr) - len(arr[i])) + buffer;
+
+for i in range(9):
+    print(enArr[i] + " " * mellomrom(enArr, i, 3), end='');
+    print(toArr[i] + " " * mellomrom(toArr, i, 5), end='');
+    print(treArr[i] + " " * mellomrom(treArr, i , 5), end='');
+    print(fireArr[i] + " " * mellomrom(fireArr, i, 5), end='');
     print(femArr[i]);
-#print(fem);
+#print(linjeNr(toArr));
