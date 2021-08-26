@@ -8,6 +8,7 @@ fire = " _     _ \n| |   | |\n| |   | |\n| |___| |\n|_____| |\n      | |\n      
 
 fem = " _________\n|   ______|\n|  |\n|  |_____\n|_____   \ \n      \   \ \n___   |   |\n\  \__/   /\n \_______/"
 
+seks = "  _______\n /  _____|\n/  /\n|  | ______\n|  |/ ___  \ \n|   /     \ \ \n|   |     | |\n\   \_____/ /\n \_________/"
 
 enArr = ["___", "| |", "| |", "| |", "| |", "| |", "| |", "| |", "|_|"];
 
@@ -35,5 +36,6 @@ for i in range(9):
     print(toArr[i] + " " * mellomrom(toArr, i, 5), end='');
     print(treArr[i] + " " * mellomrom(treArr, i , 5), end='');
     print(fireArr[i] + " " * mellomrom(fireArr, i, 5), end='');
-    print(femArr[i]);
-#print(linjeNr(toArr));
+    print(femArr[i] + " " * mellomrom(femArr, i, 5));
+
+print(seks);
