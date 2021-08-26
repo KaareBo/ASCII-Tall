@@ -1,44 +1,5 @@
-en = " _ \n| |\n| |\n| |\n| |\n| |\n| |\n| |\n|_|";
-
-to = "   _____\n  / ___ \ \n /_/   \ \ \n       / /\n      / /\n     / /\n    / /\n __/ /___\n|________|"
-
-tre = "  _____\n / ___ \ \n/_/   \ \ \n    __/ /\n   |__ |\n      \ \ \n__    | |\n\ \___/ /\n \_____/"
-
-fire = " _     _ \n| |   | |\n| |   | |\n| |___| |\n|_____| |\n      | |\n      | |\n      | |\n      |_|"
-
-fem = " _________\n|   ______|\n|  |\n|  |_____\n|_____   \ \n      \   \ \n___   |   |\n\  \__/   /\n \_______/"
-
-seks = "  _______\n /  _____|\n/  /\n|  | ______\n|  |/ ___  \ \n|   /     \ \ \n|   |     | |\n\   \_____/ /\n \_________/"
-
-sju = " ____________\n|_________   |\n         /  /\n        /  /\n       /  /\n      /  /\n     /  /\n    /  /\n   /__/"
-
-åtte = "    ______\n   / ____ \ \n  | /    \ |\n  \ \____/ /\n  /  ____  \ \n /  /    \  \ \n|  |      |  |\n\   \____/   /\n \__________/"
-
-ni = "  _________\n /  _____  \ \n|  /     \  |\n|  \_____/  |\n \_______   |\n         |  |\n___      |  |\n\  \____/   |\n \_________/"
-
-null = "  ___________\n /   _____   \ \n|   /     \   |\n|  |       |  |\n|  |       |  |\n|  |       |  |\n|  |       |  |\n|   \_____/   |\n \___________/"
-
-
-
-enArr = ["___", "| |", "| |", "| |", "| |", "| |", "| |", "| |", "|_|"];
-
-toArr = ["   _____", "  / ___ \ ", " /_/   \ \ ", "       / /", "      / /", "     / /", "    / /", " __/ /___", "|________|"];
-
-treArr = ["  _____", " / ___ \ ", "/_/   \ \ ", "    __/ /", "   |__  |", "      \ \ ", "__    | |", "\ \___/ /", " \_____/"]
-
-fireArr = [" _     _ ", "| |   | |", "| |   | |", "| |___| |", "|_____| |", "      | |", "      | |", "      | |", "      |_|"];
-
-femArr = [" _________", "|   ______|", "|  |", "|  |_____", "|_____   \ ", "      \   \ ", "___   |   |", "\  \__/   /", " \_______/"]
-
-seksArr = ["  _______", " /  _____|", "/  /", "|  | ______", "|  |/ ___  \ ", "|   /     \ \ ", "|   |     | |", "\   \_____/ /", " \_________/"]
-
-sjuArr = [" ____________", "|_________   |", "         /  /", "        /  /", "       /  /", "      /  /", "     /  /", "    /  /", "   /__/"];
-
-åtteArr = ["    ______", "   / ____ \ ", "  | /    \ |", "  \ \____/ /", "  /  ____  \ ", " /  /    \  \ ", "|  |      |  |", "\   \____/   /", " \__________/"]
-
-niArr = ["  _________", " /  _____  \ ", "|  /     \  |", "|  \_____/  |", " \_______   |", "         |  |", "___      |  |", "\  \____/   |", " \_________/"]
-
-nullArr = ["  ___________", " /   _____   \ ", "|   /     \   |", "|  |       |  |", "|  |       |  |", "|  |       |  |", "|  |       |  |", "|   \_____/   |", " \___________/"]
+import os, time;
+from tall import *;
 
 def linjeNr(arr):
     x = 0;
@@ -50,14 +11,40 @@ def linjeNr(arr):
 def mellomrom(arr, i, buffer): #Regner ut mellomrom til linje. Mellomrom er lik lengden av den lengste linja, minus lengden på nåværende linje, pluss en buffer på 3
     return (linjeNr(arr) - len(arr[i])) + buffer;
 
-for i in range(9):
-    print(enArr[i] + " " * mellomrom(enArr, i, 3), end='');
-    print(toArr[i] + " " * mellomrom(toArr, i, 5), end='');
-    print(treArr[i] + " " * mellomrom(treArr, i , 5), end='');
-    print(fireArr[i] + " " * mellomrom(fireArr, i, 5), end='');
-    print(femArr[i] + " " * mellomrom(femArr, i, 5), end='');
-    print(seksArr[i] + " " * mellomrom(seksArr, i, 5), end='');
-    print(sjuArr[i] + " " * mellomrom(sjuArr, i, 4), end='');
-    print(åtteArr[i] + " " * mellomrom(åtteArr, i, 8), end='');
-    print(niArr[i] + " " * mellomrom(niArr, i, 5), end='');
-    print(nullArr[i]);
+def clear():
+    command = "clear";
+    if os.name in ('nt', 'dos'): #Sjekker om det kjører windows
+        command = "cls";
+    os.system(command);
+
+tid = 0;
+
+while 1:
+    clear();
+    for i in range(9): #Print hver linje av hvert tall
+        for x in str(tid): #Print samme linje av hvert tall
+
+            if(x == "1"):
+                print(enArr[i] + " " * mellomrom(enArr, i, 5), end='');
+            elif(x == "2"):
+                print(toArr[i] + " " * mellomrom(toArr, i, 7), end='');
+            elif(x == "3"):
+                print(treArr[i] + " " * mellomrom(treArr, i, 7), end='');
+            elif(x == "4"):
+                print(fireArr[i] + " " * mellomrom(fireArr, i, 5), end='');
+            elif(x == "5"):
+                print(femArr[i] + " " * mellomrom(femArr, i, 5), end='');
+            elif(x == "6"):
+                print(seksArr[i] + " " * mellomrom(seksArr, i, 5), end='');
+            elif(x == "7"):
+                print(sjuArr[i] + " " * mellomrom(sjuArr, i, 4), end='');
+            elif(x == "8"):
+                print(åtteArr[i] + " " * mellomrom(åtteArr, i, 8), end='');
+            elif(x == "9"):
+                print(niArr[i] + " " * mellomrom(niArr, i, 7), end='');
+            elif(x == "0"):
+                print(nullArr[i] + " " * mellomrom(nullArr, i, 7), end='');
+
+        print("");
+    tid += 1;
+    time.sleep(1);
